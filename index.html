@@ -3,130 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Supriti Kar | GIS Engineer Portfolio</title>
+    <title>Supriti Kar | Geospatial Portfolio</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="top"></div>
     <div class="progress" id="progressBar"></div>
 
-      <header class="site-header">
+    <header class="site-header">
       <a class="brand" href="#top" aria-label="Supriti Kar portfolio home">
         <span class="brand-mark">SK</span>
-        <span>Supriti Kar</span>
+        <span class="brand-text">
+          <strong>Supriti Kar</strong>
+          <small>GIS Engineer</small>
+        </span>
       </a>
+
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
       <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-        <a href="#interests">Interests</a>
+        <a href="#focus">Focus</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero section-band">
+      <section class="hero">
         <div class="hero-copy reveal">
-          <p class="eyebrow">GIS Engineer | GeoAI Enthusiast</p>
-          <h2>Building geospatial tools that make location data easier to analyze, explain, and use.</h2>
+          <p class="eyebrow">Geospatial Engineering | WebGIS | GeoAI</p>
+          <h2>Designing geospatial systems that turn spatial data into accessible decisions, analysis, and public value.</h2>
           <p class="hero-text">
-            I develop GIS applications and databases, work across ArcObjects, .NET, PostgreSQL/PostGIS, ArcGIS, QGIS,
-            Python, and Google Earth Engine, and enjoy turning spatial analysis into practical user-focused tools.
+            I work across GIS application development, spatial databases, satellite analysis, analytical reporting, and
+            GeoAI-oriented workflows. My portfolio combines ArcObjects and .NET software work, spatial database
+            workflows, remote sensing, WebGIS, and recent public service accessibility and flood analysis projects.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href="#contact">Get in Touch</a>
+
+          <div class="hero-tags reveal" aria-label="Primary domains">
+            <span>Accessibility Analysis</span>
+            <span>Spatial Databases</span>
+            <span>Flood Modelling</span>
+            <span>Earth Observation</span>
+            <span>WebGIS Delivery</span>
           </div>
-          <div class="quick-stats" aria-label="Portfolio highlights">
-            <div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Explore Projects</a>
+            <a class="button secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="hero-metrics">
+            <article>
               <strong>2022-Present</strong>
-              <span>GIS Software Developer at MapmyIndia</span>
-            </div>
-            <div>
+              <span>GIS Software Developer, MapmyIndia</span>
+            </article>
+            <article>
+              <strong>Project Portfolio</strong>
+              <span>GIS, spatial analysis, EO, WebGIS, and software-focused work</span>
+            </article>
+            <article>
               <strong>M.Tech</strong>
               <span>Geo-Informatics, MAKAUT</span>
-            </div>
-            <div>
-              <strong>GeoAI</strong>
-              <span>ML, EO data, and spatial analysis focus</span>
-            </div>
+            </article>
           </div>
         </div>
-        <div class="hero-visual reveal" aria-label="Animated geospatial network visualization">
-          <canvas id="mapCanvas" width="640" height="520"></canvas>
-          <div class="visual-card">
-            <span class="pulfse"></span>
-            <div>
-              <strong>Live GIS Focus</strong>
-              <small>Spatial data, apps, maps, and analysis</small>
+
+        <div class="hero-visual reveal" aria-label="Animated geospatial analysis scene">
+          <canvas id="terrainCanvas" width="720" height="560"></canvas>
+          <!-- <div class="map-panel">
+             <div class="panel-line">
+              <span class="swatch service"></span>
+              <div>
+                <strong>Accessibility Layers</strong>
+              </div>
             </div>
-          </div>
+            <div class="panel-line">
+              <span class="swatch flood"></span>
+              <div>
+                <strong>Terrain and Risk</strong>
+              </div>
+            </div>
+            <div class="panel-line">
+              <span class="swatch eo"></span>
+              <div>
+                <strong>Earth Observation</strong>
+              </div>
+            </div> 
+          </div> -->
         </div>
       </section>
 
-      <section class="section section-grid" id="interests">
+      <section class="section split-section" id="focus">
         <div class="section-heading reveal">
-          <p class="eyebrow">Core Interest</p>
-          <h2>Where my work is centered</h2>
+          <p class="eyebrow">Core Focus</p>
+          <h2>Where my geospatial work is strongest</h2>
           <p>
-            My strongest interests sit at the intersection of GIS software engineering, geospatial databases, satellite
-            data analysis, and GeoAI workflows.
+            My work is shaped by spatial analysis, GIS software engineering, remote sensing, analytical reporting, and
+            geospatial workflows that support real planning or decision-making needs.
           </p>
         </div>
-        <div class="interest-grid">
-          <article class="interest-card reveal">
-            <span class="icon">01</span>
+
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <span class="focus-id">01</span>
             <h3>GIS Application Development</h3>
-            <p>Custom ArcObjects and ArcGIS-based tools built with C#, VB.NET, .NET, and user-focused workflows.</p>
+            <p>Custom ArcObjects and ArcGIS-based development using C#, VB.NET, .NET, PyQGIS, and user-focused workflows.</p>
           </article>
-          <article class="interest-card reveal">
-            <span class="icon">02</span>
-            <h3>Spatial Databases</h3>
-            <p>Query building, geospatial data management, and spatial analysis using PostgreSQL, PostGIS, and Oracle.</p>
+          <article class="focus-card reveal">
+            <span class="focus-id">02</span>
+            <h3>Spatial Databases and Accessibility Analysis</h3>
+            <p>PostgreSQL and PostGIS workflows for distance, coverage, service area, and accessibility index analysis.</p>
           </article>
-          <article class="interest-card reveal">
-            <span class="icon">03</span>
+          <article class="focus-card reveal">
+            <span class="focus-id">03</span>
             <h3>Remote Sensing and GeoAI</h3>
-            <p>Satellite data analysis with Google Earth Engine, Python, machine learning, and earth observation data.</p>
+            <p>Google Earth Engine, Python, and machine learning for earth observation, change detection, and spatial insight.</p>
+          </article>
+          <article class="focus-card reveal">
+            <span class="focus-id">04</span>
+            <h3>WebGIS and Planning Support</h3>
+            <p>Leaflet, GeoServer, HTML, CSS, and JavaScript for presenting geographic results clearly to end users.</p>
           </article>
         </div>
       </section>
 
-      <section class="section compact-band" id="skills">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Technical Toolkit</p>
-          <h2>Tools I use to create geospatial solutions</h2>
+      <section class="section analysis-band">
+        <div class="analysis-grid">
+          <article class="analysis-card reveal">
+            <p class="eyebrow">What I Build</p>
+            <h3>Applications</h3>
+            <p>Desktop GIS tools, spatial analysis workflows, GIS reporting systems, and WebGIS interfaces.</p>
+          </article>
+          <article class="analysis-card reveal">
+            <p class="eyebrow">What I Analyze</p>
+            <h3>Patterns</h3>
+            <p>Accessibility, distance, coverage, flood extent, clusters, terrain, and change over time.</p>
+          </article>
+          <article class="analysis-card reveal">
+            <p class="eyebrow">What I Deliver</p>
+            <h3>Outputs</h3>
+            <p>Maps, charts, dashboards, GIS-based reports, planning support layers, and interactive tools.</p>
+          </article>
         </div>
-        <div class="skill-cloud reveal" aria-label="Skills">
-          <span>GIS</span>
-          <span>ArcObjects</span>
-          <span>ArcGIS</span>
-          <span>QGIS</span>
-          <span>Google Earth Engine</span>  
-          <span>C#</span>
-          <span>VB.NET</span>
-          <span>.NET</span>
-          <span>Python</span>
-          <span>R</span>
-          <span>PostgreSQL</span>
-          <span>PostGIS</span>
-          <span>Oracle SQL</span>
-          <span>Leaflet</span>
-          <span>AutoCAD</span>
-          <span>WebGIS</span>
-          <span>CSS</span>
+      </section>
+
+      <section class="section dashboard-strip">
+        <div class="dashboard-grid reveal">
+          <article class="dashboard-card">
+            <span class="dashboard-label">Primary Lens</span>
+            <strong>Location intelligence for planning</strong>
+            <p>Projects focused on access, coverage, risk, change detection, and decision support.</p>
+          </article>
+          <article class="dashboard-card">
+            <span class="dashboard-label">Delivery Style</span>
+            <strong>Analysis plus usable interfaces</strong>
+            <p>From PyQt desktop tools to Leaflet-based results and GIS reporting outputs.</p>
+          </article>
+          <article class="dashboard-card">
+            <span class="dashboard-label">Data Thinking</span>
+            <strong>Spatial patterns with clear outputs</strong>
+            <p>Queries, clusters, charts, maps, and summaries that stay interpretable for real users.</p>
+          </article>
         </div>
       </section>
 
       <section class="section timeline-section" id="experience">
         <div class="section-heading reveal">
           <p class="eyebrow">Experience</p>
-          <h2>Professional GIS software work</h2>
+          <h2>Professional work and academic grounding</h2>
         </div>
+
         <div class="timeline reveal">
           <article class="timeline-item">
             <div class="timeline-date">2022 - Present</div>
@@ -138,10 +190,11 @@
                 <li>Build application queries and spatial workflows with PostgreSQL and PostGIS.</li>
                 <li>Integrate third-party applications, improve software performance, and adapt tools to client needs.</li>
                 <li>Create user-focused geographical information outputs, workflow documentation, and presentations.</li>
-                <li>Geospatial data analysis</li>
+                <li>Work with geospatial data analysis and GIS problem solving in practical delivery settings.</li>
               </ul>
             </div>
           </article>
+
           <article class="timeline-item">
             <div class="timeline-date">2020 - 2022</div>
             <div class="timeline-content">
@@ -150,31 +203,27 @@
               <p>Dissertation: Development of Landslide Inventory Using Machine Learning.</p>
             </div>
           </article>
-          <!-- <article class="timeline-item">
-            <div class="timeline-date">2016 - 2020</div>
-            <div class="timeline-content">
-              <h3>B.Tech in Civil Engineering</h3>
-              <p class="company">Techno International New Town, Kolkata</p>
-              <p>Coursework and projects included sustainable construction concepts such as Eco-bricks.</p>
-            </div>
-          </article> -->
         </div>
       </section>
 
       <section class="section project-section" id="projects">
         <div class="section-heading reveal">
           <p class="eyebrow">Projects</p>
-          <h2>Selected work so far</h2>
-          <p>Use the filters to scan the work by theme.</p>
+          <h2>Selected work across software, analysis, and geospatial research</h2>
+          <p>Filter by work type to scan the portfolio quickly.</p>
         </div>
+
         <div class="filter-bar reveal" role="group" aria-label="Project filters">
           <button class="filter active" type="button" data-filter="all">All</button>
-          <button class="filter" type="button" data-filter="software">GIS Software</button>
-          <button class="filter" type="button" data-filter="geoai">GeoAI</button>
+          <button class="filter" type="button" data-filter="accessibility">Accessibility</button>
+          <button class="filter" type="button" data-filter="desktop">Desktop GIS</button>
+          <button class="filter" type="button" data-filter="eo">Earth Observation</button>
+          <button class="filter" type="button" data-filter="software">Software</button>
           <button class="filter" type="button" data-filter="research">Research</button>
         </div>
+
         <div class="project-grid">
-          <article class="project-card reveal" data-category="geoai research">
+          <article class="project-card reveal" data-category="research eo">
             <div class="project-topline">
               <span>GeoAI</span>
               <button class="details-toggle" type="button" aria-expanded="false">Details</button>
@@ -184,11 +233,19 @@
               M.Tech dissertation focused on creating a landslide inventory with machine learning methods for terrain
               and hazard-oriented geospatial analysis.
             </p>
+            <div class="stack-list">
+              <span>Machine Learning</span>
+              <span>Geo-Informatics</span>
+              <span>Spatial Analysis</span>
+            </div>
             <div class="project-details">
-              <strong>Core value:</strong> connects geospatial datasets, predictive analysis, and decision support for
-              earth observation workflows.
+              <p>
+                <strong>Core value:</strong> connects geospatial datasets, predictive analysis, and decision support for
+                earth observation workflows.
+              </p>
             </div>
           </article>
+
           <article class="project-card reveal" data-category="software">
             <div class="project-topline">
               <span>GIS Software</span>
@@ -199,12 +256,22 @@
               Professional GIS application work using ArcObjects, ArcGIS, C#, VB.NET, and .NET to support complex
               spatial data interactions.
             </p>
+            <div class="stack-list">
+              <span>ArcObjects</span>
+              <span>ArcGIS</span>
+              <span>C#</span>
+              <span>VB.NET</span>
+              <span>.NET</span>
+            </div>
             <div class="project-details">
-              <strong>Core value:</strong> turns specialist GIS workflows into repeatable application features for end
-              users and clients.
+              <p>
+                <strong>Core value:</strong> turns specialist GIS workflows into repeatable application features for end
+                users and clients.
+              </p>
             </div>
           </article>
-          <article class="project-card reveal" data-category="software">
+
+          <article class="project-card reveal" data-category="software accessibility">
             <div class="project-topline">
               <span>Database</span>
               <button class="details-toggle" type="button" aria-expanded="false">Details</button>
@@ -214,11 +281,19 @@
               Application query building and spatial data handling for GIS tools that need accurate geospatial database
               operations.
             </p>
+            <div class="stack-list">
+              <span>PostgreSQL</span>
+              <span>PostGIS</span>
+              <span>Spatial Queries</span>
+            </div>
             <div class="project-details">
-              <strong>Core value:</strong> improves how applications search, transform, and present location-based data.
+              <p>
+                <strong>Core value:</strong> improves how applications search, transform, and present location-based data.
+              </p>
             </div>
           </article>
-          <article class="project-card reveal" data-category="geoai">
+
+          <article class="project-card reveal" data-category="eo research">
             <div class="project-topline">
               <span>Remote Sensing</span>
               <button class="details-toggle" type="button" aria-expanded="false">Details</button>
@@ -228,10 +303,85 @@
               Analysis of satellite data using Google Earth Engine and Python for earth observation and geospatial
               insight generation.
             </p>
+            <div class="stack-list">
+              <span>Google Earth Engine</span>
+              <span>Python</span>
+              <span>Remote Sensing</span>
+            </div>
             <div class="project-details">
-              <strong>Core value:</strong> blends cloud-based EO processing with scripting for faster spatial analysis.
+              <p>
+                <strong>Core value:</strong> blends cloud-based EO processing with scripting for faster spatial analysis.
+              </p>
             </div>
           </article>
+
+          <article class="project-card reveal featured" data-category="accessibility software">
+            <div class="project-topline">
+              <span>Recent Work</span>
+              <button class="details-toggle" type="button" aria-expanded="false">Details</button>
+            </div>
+            <h3>Public Service Accessibility Analysis</h3>
+            <p>
+              Accessibility analysis for hospitals and schools covering accessibility index, served area, nearest
+              distance, and population coverage assessment.
+            </p>
+            <div class="stack-list">
+              <span>PyQGIS</span>
+              <span>PostGIS</span>
+              <span>PostgreSQL</span>
+              <span>Python</span>
+              <span>Leaflet.js</span>
+              <span>GeoServer</span>
+            </div>
+            <div class="project-details">
+              <p>Used PostGIS spatial queries for distance-based analysis, service area evaluation, and coverage assessment.</p>
+              <p>Applied Python for reporting, charts, graphs, analytical summaries, and cluster analysis of underserved areas.</p>
+              <p>Generated GIS-based reports to support planning and public service decision-making.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal featured" data-category="desktop software">
+            <div class="project-topline">
+              <span>Recent Work</span>
+              <button class="details-toggle" type="button" aria-expanded="false">Details</button>
+            </div>
+            <h3>Flood Analysis Model</h3>
+            <p>
+              Built a desktop GIS application with a custom PyQt5 GUI for interactive flood risk zone delineation and
+              spatial analysis workflows.
+            </p>
+            <div class="stack-list">
+              <span>PyQGIS</span>
+              <span>PyQt5</span>
+              <span>Python</span>
+            </div>
+            <div class="project-details">
+              <p>Automated QGIS geoprocessing pipelines using PyQGIS scripting for DEM-based hydrological modelling.</p>
+              <p>Supported flood extent mapping and repeatable desktop analysis workflows through a custom interface.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal featured" data-category="eo research">
+            <div class="project-topline">
+              <span>Recent Work</span>
+              <button class="details-toggle" type="button" aria-expanded="false">Details</button>
+            </div>
+            <h3>Google Earth Engine Air Quality Change Detection Application</h3>
+            <p>
+              Developed a Google Earth Engine app to monitor and visualize air quality change using Sentinel-5P NO2
+              and AOD time-series data.
+            </p>
+            <div class="stack-list">
+              <span>Google Earth Engine</span>
+              <span>JavaScript</span>
+              <span>Remote Sensing</span>
+            </div>
+            <div class="project-details">
+              <p>Created outputs to compare air quality changes across selected time periods and geographic areas.</p>
+              <p>Focused on clear visual comparison of atmospheric conditions for place-based interpretation.</p>
+            </div>
+          </article>
+
           <article class="project-card reveal" data-category="research">
             <div class="project-topline">
               <span>Research</span>
@@ -242,19 +392,76 @@
               Civil engineering project work around sustainable construction concepts, including Eco-bricks and Green
               Canvas innovation presentations.
             </p>
+            <div class="stack-list">
+              <span>Sustainability</span>
+              <span>Research</span>
+              <span>Presentation</span>
+            </div>
             <div class="project-details">
-              <strong>Core value:</strong> shows early interest in environmental problem solving and practical field
-              research.
+              <p>
+                <strong>Core value:</strong> shows early interest in environmental problem solving and practical field
+                research.
+              </p>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section compact-band">
+      <section class="section compact-section" id="skills">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Technical Toolkit</p>
+          <h2>Technologies used across GIS, WebGIS, and analysis work</h2>
+        </div>
+
+        <div class="skill-groups">
+          <article class="skill-panel reveal">
+            <h3>GIS and EO</h3>
+            <div class="skill-cloud">
+              <span>GIS</span>
+              <span>ArcObjects</span>
+              <span>ArcGIS</span>
+              <span>QGIS</span>
+              <span>PyQGIS</span>
+              <span>Google Earth Engine</span>
+              <span>Remote Sensing</span>
+              <span>WebGIS</span>
+            </div>
+          </article>
+          <article class="skill-panel reveal">
+            <h3>Programming and Data</h3>
+            <div class="skill-cloud">
+              <span>C#</span>
+              <span>VB.NET</span>
+              <span>.NET</span>
+              <span>Python</span>
+              <span>R</span>
+              <span>PostgreSQL</span>
+              <span>PostGIS</span>
+              <span>Oracle SQL</span>
+            </div>
+          </article>
+          <article class="skill-panel reveal">
+            <h3>Web and Delivery</h3>
+            <div class="skill-cloud">
+              <span>Leaflet.js</span>
+              <span>GeoServer</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>AutoCAD</span>
+              <span>Reporting</span>
+              <span>Charts and Graphs</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section compact-section">
         <div class="section-heading reveal">
           <p class="eyebrow">Certifications and Highlights</p>
           <h2>Learning and research milestones</h2>
         </div>
+
         <div class="highlight-list reveal">
           <p>Artificial Intelligence for Earth Observation and Geodata Handling and Processing.</p>
           <p>Faculty Development Program on Geographical Information System as a multidisciplinary tool.</p>
@@ -266,18 +473,15 @@
       <section class="contact-section" id="contact">
         <div class="contact-copy reveal">
           <p class="eyebrow">Contact</p>
-          <h2>Let us connect around GIS, WebGIS, GeoAI, or spatial data work.</h2>
+          <h2>Open to GIS, WebGIS, spatial analysis, and GeoAI opportunities.</h2>
           <p>Based in Mal, Jalpaiguri, West Bengal. Comfortable working independently and in collaborative teams.</p>
         </div>
+
         <div class="contact-actions reveal">
           <a class="contact-link" href="mailto:supritikar97@gmail.com">supritikar97@gmail.com</a>
           <a class="contact-link" href="tel:+918392024489">+91 83920 24489</a>
-          <a class="contact-link" href="https://www.linkedin.com/in/supriti-kar-99032b1b4" target="_blank" rel="noreferrer">
-            LinkedIn Profile
-          </a>
-          <a class="button primary" href="asset/Supriti_Geospatial_Resume_05.pdf" target="_blank" rel="noreferrer">
-            Open Resume
-          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/supriti-kar-99032b1b4" target="_blank" rel="noreferrer">LinkedIn Profile</a>
+          <a class="button primary" href="asset/Supriti_Geospatial_Resume_05.pdf" target="_blank" rel="noreferrer">Open Resume</a>
         </div>
       </section>
     </main>

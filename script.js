@@ -4,10 +4,12 @@ const progressBar = document.querySelector("#progressBar");
 const sections = [...document.querySelectorAll("main section[id]")];
 const navItems = [...document.querySelectorAll(".nav-links a")];
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
 
 navItems.forEach((link) => {
   link.addEventListener("click", () => {
@@ -25,7 +27,7 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.14 }
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
@@ -36,9 +38,7 @@ const updateProgressAndNav = () => {
   const progress = pageHeight > 0 ? (scrollTop / pageHeight) * 100 : 0;
   progressBar.style.width = `${progress}%`;
 
-  const current = sections
-    .filter((section) => section.offsetTop <= scrollTop + 120)
-    .at(-1);
+  const current = sections.filter((section) => section.offsetTop <= scrollTop + 140).at(-1);
 
   navItems.forEach((item) => {
     item.classList.toggle("active", current && item.getAttribute("href") === `#${current.id}`);
@@ -70,19 +70,20 @@ document.querySelectorAll(".details-toggle").forEach((button) => {
   });
 });
 
-const canvas = document.querySelector("#mapCanvas");
+const canvas = document.querySelector("#terrainCanvas");
 const ctx = canvas.getContext("2d");
-const points = [
-  { x: 0.14, y: 0.22, r: 4, speed: 0.55 },
-  { x: 0.32, y: 0.36, r: 5, speed: 0.42 },
-  { x: 0.5, y: 0.18, r: 4, speed: 0.5 },
-  { x: 0.68, y: 0.38, r: 6, speed: 0.36 },
-  { x: 0.82, y: 0.62, r: 4, speed: 0.48 },
-  { x: 0.55, y: 0.72, r: 5, speed: 0.4 },
-  { x: 0.28, y: 0.68, r: 4, speed: 0.52 },
-  { x: 0.16, y: 0.5, r: 5, speed: 0.34 }
+
+const workflowPoints = [
+  { x: 0.14, y: 0.28, r: 4, speed: 0.55, color: "#3f6a52" },
+  { x: 0.3, y: 0.36, r: 5, speed: 0.42, color: "#2d7f8b" },
+  { x: 0.48, y: 0.18, r: 4, speed: 0.5, color: "#c38747" },
+  { x: 0.66, y: 0.38, r: 6, speed: 0.36, color: "#3f6a52" },
+  { x: 0.82, y: 0.6, r: 4, speed: 0.48, color: "#2d7f8b" },
+  { x: 0.56, y: 0.72, r: 5, speed: 0.4, color: "#c38747" },
+  { x: 0.3, y: 0.68, r: 4, speed: 0.52, color: "#3f6a52" },
+  { x: 0.16, y: 0.5, r: 5, speed: 0.34, color: "#2d7f8b" }
 ];
-const links = [
+const workflowLinks = [
   [0, 1],
   [1, 2],
   [2, 3],
@@ -104,17 +105,17 @@ const resizeCanvas = () => {
 };
 
 const drawGrid = (width, height) => {
-  ctx.strokeStyle = "rgba(20, 94, 168, 0.08)";
+  ctx.strokeStyle = "rgba(31, 53, 44, 0.06)";
   ctx.lineWidth = 1;
 
-  for (let x = 0; x <= width; x += 46) {
+  for (let x = 0; x <= width; x += 56) {
     ctx.beginPath();
     ctx.moveTo(x, 0);
     ctx.lineTo(x, height);
     ctx.stroke();
   }
 
-  for (let y = 0; y <= height; y += 46) {
+  for (let y = 0; y <= height; y += 56) {
     ctx.beginPath();
     ctx.moveTo(0, y);
     ctx.lineTo(width, y);
@@ -122,31 +123,22 @@ const drawGrid = (width, height) => {
   }
 };
 
-const drawMap = (time = 0) => {
-  const rect = canvas.getBoundingClientRect();
-  const width = rect.width;
-  const height = rect.height;
-
-  ctx.clearRect(0, 0, width, height);
-  drawGrid(width, height);
-
-  //To get the position object of the points, this fn is used
-  const positioned = points.map((point, index) => {
+const drawWorkflow = (width, height, time) => {
+  const positioned = workflowPoints.map((point, index) => {
     const drift = Math.sin(time * 0.001 * point.speed + index) * 8;
     return {
       x: point.x * width + drift,
       y: point.y * height + Math.cos(time * 0.001 * point.speed + index) * 8,
-      r: point.r
+      r: point.r,
+      color: point.color
     };
   });
 
-
-  //To connect the two points, this fn is used. 
   ctx.lineWidth = 2;
-  links.forEach(([start, end]) => {
+  workflowLinks.forEach(([start, end]) => {
     const a = positioned[start];
     const b = positioned[end];
-    ctx.strokeStyle = "rgba(20, 94, 168, 0.28)";
+    ctx.strokeStyle = "rgba(45, 127, 139, 0.24)";
     ctx.beginPath();
     ctx.moveTo(a.x, a.y);
     ctx.lineTo(b.x, b.y);
@@ -155,26 +147,46 @@ const drawMap = (time = 0) => {
 
   positioned.forEach((point, index) => {
     ctx.beginPath();
-    ctx.fillStyle = index % 3 === 0 ? "#21a7a8" : "#145ea8";
+    ctx.fillStyle = point.color;
     ctx.arc(point.x, point.y, point.r + Math.sin(time * 0.004 + index) * 1.5, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(33, 167, 168, 0.18)";
+    ctx.strokeStyle = "rgba(110, 159, 116, 0.14)";
     ctx.lineWidth = 8;
     ctx.arc(point.x, point.y, point.r + 10, 0, Math.PI * 2);
     ctx.stroke();
   });
+};
 
-  ctx.fillStyle = "rgba(242, 184, 75, 0.92)";
-  ctx.fillRect(width * 0.08, height * 0.82, width * 0.3, 4);
-  ctx.fillStyle = "#0a2540";
+const drawLegend = (width, height) => {
+  ctx.fillStyle = "rgba(31, 53, 44, 0.82)";
   ctx.font = "700 13px Arial";
-  ctx.fillText("Spatial workflow network", width * 0.08, height * 0.79);
+  ctx.fillText("Geospatial workflow network", width * 0.08, height * 0.13);
 
-  requestAnimationFrame(drawMap);
+  ctx.fillStyle = "rgba(63, 106, 82, 0.92)";
+  ctx.fillRect(width * 0.08, height * 0.16, width * 0.22, 4);
+
+  ctx.fillStyle = "rgba(45, 127, 139, 0.92)";
+  ctx.fillRect(width * 0.08, height * 0.19, width * 0.14, 4);
+
+  ctx.fillStyle = "rgba(195, 135, 71, 0.92)";
+  ctx.fillRect(width * 0.08, height * 0.22, width * 0.09, 4);
+};
+
+const drawScene = (time = 0) => {
+  const rect = canvas.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.height;
+
+  ctx.clearRect(0, 0, width, height);
+  drawGrid(width, height);
+  drawWorkflow(width, height, time);
+  drawLegend(width, height);
+
+  requestAnimationFrame(drawScene);
 };
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
-requestAnimationFrame(drawMap);
+requestAnimationFrame(drawScene);
